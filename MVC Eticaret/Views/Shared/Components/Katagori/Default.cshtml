@@ -1,0 +1,47 @@
+﻿@model MVC_Eticaret.Models.ViewModel
+
+
+
+@foreach (var Ust in Model.Katagori)
+{
+    if (Ust.KatagoriLink != null)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"><a href="@Ust.KatagoriLink">@Ust.Katagori</a></h4>
+            </div>
+        </div>
+    }
+    else
+    {
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordian" href="#@Ust.Katagori.Substring(0, 2)">
+                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                        @Ust.Katagori
+                    </a>
+                </h4>
+            </div>
+            <div id="@Ust.Katagori.Substring(0, 2)" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul>
+                        @foreach (var alt in Model.AltKatagori)
+                        {
+                            if (Ust.katagoriId == alt.katagoriId)
+                            {
+                                <li><a href="/KatagoriUrun/@alt.AltKatagori_Link.">@alt.AltKatagori </a></li>
+
+                            }
+
+                        }
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+}

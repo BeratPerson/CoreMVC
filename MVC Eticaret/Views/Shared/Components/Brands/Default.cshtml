@@ -1,0 +1,9 @@
+﻿
+@model List<MVC_Eticaret.Models.Brands>
+
+<ul class="nav nav-pills nav-stacked">
+    @foreach (var i in Model)
+    {
+        <li><a href="@i.brand_Link"> <span class="pull-right">(@i.brand_Adet)</span>@i.brand_Adi</a></li>
+    }
+</ul>

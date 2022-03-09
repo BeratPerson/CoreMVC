@@ -1,0 +1,25 @@
+﻿@model List<MVC_Eticaret.Models.UserProfile>
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
+@*@if (== "true")
+{
+    @string     deger = HttpContext.Session.GetString("isUserLogin");
+}*@
+<div class="row">
+    <div class="col-md-12 clearfix">
+        <div class="shop-menu clearfix pull-right">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home/Index" class="active"><i class="fa fa-home"></i> Anasayfa</a></li>
+                <li><a href="/Shop/Product"><i class="fa fa-crosshairs"></i> Ürünler</a></li>
+                <li><a href="/Home/Contact"><i class="fa-solid fa-message-code"></i> İletişim</a></li>
+                <li><a href=""><i class="fa fa-user"></i> Hesabım</a></li>
+                <li><a href=""><i class="fa fa-star"></i> Kaydedilenler</a></li>
+                <li><a href="/Shop/Checkout"><i class="fa fa-crosshairs"></i> Çıkış Yap</a></li>
+                <li><a href="/Shop/cart"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+                <li><a href="/Home/Login"><i class="fa fa-lock"></i> Giriş Yap</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+

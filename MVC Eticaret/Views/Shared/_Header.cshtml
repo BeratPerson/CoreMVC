@@ -1,0 +1,123 @@
+﻿
+<style>
+
+
+    .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+    }
+
+    .searchTerm {
+        width: 100%;
+        border: 2px solid #FE980F;
+        border-right: none;
+        padding: 5px;
+        height: 36px;
+        border-radius: 3px 0 0 3px;
+        outline: none;
+    }
+
+        .searchTerm:focus {
+            color: black;
+        }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #FE980F;
+        background: #FE980F;
+        text-align: center;
+        color: #eeeeee;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+</style>
+
+
+<header id="header">
+    <!--header-->
+    <div class="header_top">
+        <!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="#"><i class="fa fa-phone"></i> +90 553 963 73 12</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i> beratkisi12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-middle">
+        <!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 clearfix">
+                    <div class="logo pull-left">
+                        <a href="/Home/Index"><img src="~/images/home/logo.png" alt="" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-5">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder="Aradığınız ürün, katagoriyi veya markayı yazınız.">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-md-4 clearfix">
+
+                    <div class="btn-group pull-right">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                Ülke
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Türkiye</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                Para Birimi
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Türk Lirası</a></li>
+                                <li><a href="">Dolar</a></li>
+                                <li><a href="">Euro</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("DinamikNavbar")
+
+
+
+        </div>
+    </div><!--/header-middle-->
+
+
+</header><!--/header-->
