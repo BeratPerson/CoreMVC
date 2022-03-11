@@ -3,6 +3,8 @@
     ViewData["Title"] = "UrunDetay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/css/jquery.rateyo.css" rel="stylesheet" />
+
 <div class="container mt-0">
     <div class="col-sm-11 padding-right">
         <div class="product-details">
@@ -25,13 +27,13 @@
                         </div>
                         <div class="img-item">
                             <a href="#" data-id="2">
-                                <img src="@Model.Urun_Resim_2" alt="@Model.Urun_Adi" style="width: 100%; height: 60px;" >
+                                <img src="@Model.Urun_Resim_2" alt="@Model.Urun_Adi" style="width: 100%; height: 60px;">
 
                             </a>
                         </div>
                         <div class="img-item">
                             <a href="#" data-id="3">
-                                <img src="@Model.Urun_Resim_3" alt="@Model.Urun_Adi" style="width: 100%; height: 60px; " >
+                                <img src="@Model.Urun_Resim_3" alt="@Model.Urun_Adi" style="width: 100%; height: 60px; ">
 
                             </a>
                         </div>
@@ -278,7 +280,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="tab-pane fade active in" id="reviews">
                     <div class="col-sm-12">
                         <ul>
@@ -291,13 +292,14 @@
 
                         <form action="#">
                             <span>
-                                <input type="text" placeholder="Your Name">
-                                <input type="email" placeholder="Email Address">
+                                <input type="text" placeholder="Ad-Soyad">
+                                <input type="email" placeholder="E-mail Address">
                             </span>
                             <textarea name=""></textarea>
-                            <b>Rating: </b> <img src="~/images/product-details/rating.png" alt="">
+                            <b>Rating: </b>     <div class="rateyo"></div>
+                            <input type="hidden" name="RatingProduct" id="rating" />
                             <button type="button" class="btn btn-default pull-right">
-                                Submit
+                                Gönder
                             </button>
                         </form>
                     </div>
@@ -422,4 +424,25 @@
     }
 
     window.addEventListener('resize', slideImage);
-</script>>
+</script>
+<script src="~/js/jquery.js"></script>
+
+<script src="~/js/jquery.rateyo.js"></script>
+<script src="~/js/jquery.rateyo.min.js"></script>
+<script>
+    $(function () {
+      var rating = 1.6;
+      $(".counter").text(rating);
+      $(".rateyo").rateYo();
+      $(".rateyo-readonly-widg").rateYo({
+        rating: rating,
+        numStars: 5,
+        precision: 2,
+        minValue: 1,
+        maxValue: 5
+      }).on("rateyo.change", function (e, data) {
+
+        console.log(data.rating);
+      });
+    });
+</script>
