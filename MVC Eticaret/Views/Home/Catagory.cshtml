@@ -1,0 +1,142 @@
+﻿@model List<MVC_Eticaret.Models.Urunler>
+@{
+    ViewData["Title"] = "Katagori";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+
+    .fotoEfect {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+        .fotoEfect :hover {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+</style>
+
+<section id="slider">
+    <!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>Free E-Commerce Template</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>100% Responsive Design</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>Free Ecommerce Template</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Get it now</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                @Html.Partial("_LeftSideMenu")
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Trendler</h2>
+                    @if (Model != null)
+                        foreach (var u in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center ">
+                                            <div class="fotoEfect">
+                                                <a href="/Home/UrunDetay/@u.Urun_Id">
+                                                    <img src="@u.Urun_Resim_1" alt="@u.Urun_Adi" width="206" />
+                                                </a>
+                                            </div>
+                                            <h2><i class="fa fa-turkish-lira"></i>@u.Urun_Fiyat</h2>
+                                            <p>@u.Urun_Adi</p>
+                                            <a href="/Home/SepeteEkle/@u.Urun_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                                        </div>
+                                        @*<div class="product-overlay">
+                                            <div class="overlay-content">
+                                            <h2><i class="fa fa-turkish-lira"></i>@u.Urun_Fiyat</h2>
+                                            <p>@u.Urun_Adi</p>
+                                            <a href="/Home/SepeteEkle/@u.Urun_Id" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+                                            <a href="/Home/UrunDetay/@u.Urun_Id" class="btn btn-default add-to-cart">Detay</a>
+                                            </div>
+                                            </div>*@
+                                    </div>
+                                    <div class="choose">
+                                        <ul class="nav nav-pills nav-justified">
+                                            <li><a href="/Home/FavorilereEkle/@u.Urun_Id"><i class="fa fa-plus-square"></i>Favorilere Ekle</a></li>
+                                            <li><a href="/Home/KarsilastirEkle/@u.Urun_Id"><i class="fa fa-plus-square"></i>Karşılaştır</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+

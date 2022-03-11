@@ -10,39 +10,53 @@
     <!--form-->
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-1">
+            <div class="col-sm-4 ">
                 <div class="login-form">
                     <!--login form-->
                     <h2>Login to your account</h2>
                     @using (Html.BeginForm("Login", "Home", FormMethod.Post))
                     {
-
                         @Html.TextBoxFor(a => a.UserName)
                         @Html.PasswordFor(a => a.Password)
                         <span>
                             <input type="checkbox" class="checkbox">
                             Keep me signed in
                         </span>
+                        <span>
+                            <a href="#" data-toggle="modal" data-target="#sifreModal">Şifremi Unuttum</a>
+                        </span>
+                        @ViewBag.Message;
                         <button type="submit" class="btn btn-default">Login</button>
                     }
                 </div><!--/login form-->
             </div>
-            <div class="col-sm-1">
-                <h2 class="or">OR</h2>
-            </div>
-            <div class="col-sm-4">
-                <div class="signup-form">
-                    <!--sign up form-->
-                    <h2>New User Signup!</h2>
-                    <form action="#">
-                        <input type="text" placeholder="Name">
-                        <input type="email" placeholder="Email Address">
-                        <input type="password" placeholder="Password">
-                        <button type="submit" class="btn btn-default">Signup</button>
-                    </form>
-                </div><!--/sign up form-->
-            </div>
+
+
         </div>
     </div>
 </section>
-
+<div class="modal fade" data-backdrop="false" style="height:1000px;" id="sifreModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel"><b>Şifremi Unuttum Formu</b></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/Home/ForgotPassword" method="post">
+                    <div class="form-group">
+                        @ViewBag.Message;
+                        <label class="col-form-label">Mail Adresiniz</label>
+                        <input type="email" class="form-control" id="Email" name="Email">
+                    </div>
+                    <div class="modal-footer" style="padding-bottom:10px;">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <input type="submit" class="btn btn-outline-primary" name="Email" value="Gönder" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

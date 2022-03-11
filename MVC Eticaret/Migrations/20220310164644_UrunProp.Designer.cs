@@ -4,14 +4,16 @@ using MVC_Eticaret.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MVC_Eticaret.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20220310164644_UrunProp")]
+    partial class UrunProp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,27 +112,6 @@ namespace MVC_Eticaret.Migrations
                     b.Property<double>("Urun_Puan")
                         .HasColumnType("float");
 
-                    b.Property<string>("Urun_Renk_1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_5")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_6")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Renk_7")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Urun_Resim_1")
                         .HasColumnType("nvarchar(max)");
 
@@ -138,18 +119,6 @@ namespace MVC_Eticaret.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Urun_Resim_3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Resim_4")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Resim_5")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Resim_6")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Urun_Resim_7")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Urun_StokDurum")

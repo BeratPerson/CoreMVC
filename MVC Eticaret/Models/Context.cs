@@ -10,7 +10,7 @@ namespace MVC_Eticaret.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-L41CNHP\\SQLEXPRESS;database=ECommance3;integrated security=true;MultipleActiveResultSets=true;");
+            optionsBuilder.UseSqlServer("server=DESKTOP-17L0J0G;database=ECommance;integrated security=true;MultipleActiveResultSets=true;");
         }
         public DbSet <Katagoriler> katagoriler { get; set; }
         public DbSet <Brands> Brands { get; set; }

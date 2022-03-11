@@ -14,10 +14,7 @@ namespace MVC_Eticaret.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var aktifMi = c.UserProfile.ToList();
-
-            return View(aktifMi);
-
+                return View();
         }
     }
 }
