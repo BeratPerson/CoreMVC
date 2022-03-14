@@ -1,0 +1,37 @@
+﻿        <aside id="sidebar-left" class="sidebar-left">
+            <div class="sidebar-header" id="alan2header">
+                <div class="sidebar-toggle d-none d-md-flex" id="toggle" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                    <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+            <div class="nano">
+                <div class="nano-content" id="alan1">
+                    <nav id="menu" class="nav-main" role="navigation">
+                        <ul class="nav nav-main">
+
+                            @*                            <li class="nav-parent">
+                                <a class="nav-link menu-link-animation-tada" href="#">
+                                <i class="bx bx-user-plus" aria-hidden="true"></i>
+                                <span id="baslik2">Ürünler</span>
+                                </a>
+                                <ul class="nav nav-children">
+                                <li>
+                                <a class="nav-link" href="@Url.Action("Prudct","Admin")">Kullanıcı Rol Ekleme</a>
+                                </li>
+                                </ul>
+                                </li>*@
+                            <li>
+                                <i class="fa-solid fa-crate-empty"></i>
+                                <a class="nav-link" href="@Url.Action("Product","Admin")">Ürünler</a>
+                            </li>
+                            <li>
+                                <a class="nav-link menu-link-animation-fade-left" href="/Home/LogOut">
+                                    <i class="bx bx-log-out" aria-hidden="true"></i>
+                                    <span id="baslik5">Güvenli Çıkış</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </aside>

@@ -85,6 +85,8 @@ namespace MVC_Eticaret.Controllers
                     }
                 }
             }
+            TempData["Message"] = "Bir şeyler  yanlış gitti.";
+
             return View(user);
         }
         public ActionResult Register()
@@ -94,20 +96,26 @@ namespace MVC_Eticaret.Controllers
         [HttpPost]
         public ActionResult Register(UserProfile user)
         {
-            var Kontrol = c.UserProfile.Where(x => x.UserName == Convert.ToString(user.UserName.First()));
-            var Kontrol2 = c.UserProfile.Where(x => x.Mail == Convert.ToString(user.Mail.First()));
-            if (Kontrol == null)
-                if (Kontrol == null)
+            if (ModelState.IsValid)
+            {
+                using (var context = new Context())
                 {
                     user.IsActive = true;
+                    user.DogumTarihi = user.DogumTarihi;
+                    user.UserName = user.UserName;
+                    user.Name = user.Name;
+                    user.LastName = user.LastName;
+                    user.Mail = user.Mail;
+                    user.TelNo = user.TelNo;
                     c.Add(user);
                     c.SaveChanges();
+                    TempData["Register"]=("Başarılı");
                     return RedirectToAction("Login");
+
                 }
-                else
-                    ViewBag.Kontrol = "Mail Kullanımda";
-            else
-                ViewBag.Kontrol = "Kullanıcı Adı Kullanımda";
+            }
+            TempData["Register"] = ("Bilgilerinizi Kontrol Ediniz.");
+
             return View();
 
 

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model MVC_Eticaret.Models.UserProfile
+@{
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -32,7 +33,11 @@
             <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
                 <div class="form-container">
                     <h3 class="title">Kullanıcı Kaydı</h3>
-                    <form class="form-horizontal">
+
+                    @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+
+
                         <div class="form-group">
                             <label>Ad*</label>
                             <input class="form-control" type="text" name="Name">
@@ -53,10 +58,7 @@
                             <label>Şifre*</label>
                             <input class="form-control" type="password" name="Password">
                         </div>
-                        <div class="form-group">
-                            <label>Şifreyi Onayla*</label>
-                            <input class="form-control" type="password" name="ConfirmPassword">
-                        </div>
+
                         <h4 class="sub-title">Kullanıcı Bilgileri</h4>
                         <div class="form-group phone-no">
                             <label>Telefon Numarası*</label>
@@ -66,10 +68,16 @@
                             <label>Doğum Tarihi*</label>
                             <input class="form-control" type="date" name="DogumTarihi">
                         </div>
+                        <div class="text-danger">
+                            @TempData["Register"]
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        </div>
                         <button class="btn signin">Hesabı Oluştur </button>
                         <span class="user-login">Zaten Hesabın Var mı? Buraya Tıkla <a href="/Home/Login">Giriş Yap</a></span>
-                    </form>
-
+                    }
                 </div>
             </div>
         </div>
